@@ -10,7 +10,6 @@ div.drum-wrapper {
 }
 div.drum-wrapper .inner {
     position: relative;
-    /*overflow: hidden;*/
 }
 div.drum-wrapper div.container {
     position: absolute;
