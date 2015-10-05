@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/drum.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+      <script src="js/app.js"></script>
+
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+        <div class="bar bar-header bar-balanced height-60 header-footer-color" style="z-index: 12;">
+            <span class="header-span">cancel</span>
+            <h1 class="header-title title ">Create Shift</h1>
+            <span class="header-span mar-left-calc" ng-click="save()">Save</span>
+        </div>
+      <ion-content scroll="false" ng-controller="main" class="has-header">
+          <ion-scroll ng-class="{'height-ctrl animation' : !showPicker, 'height-ctrl2 animation' : showPicker}" delegate-handle="my-handle">
+            <div class="list card mar-top-60">
+
+              <div class="list">
+                  <div class="item item-divider min-height-60 pad-top-13 row font_initial">
+                      <div class="col col-33">Date</div>
+                      <div class="col col-75">{{todaysDate | date:'EEEE, MMMM, dd, yyyy'}}</div>
+                  </div>
+                  <div class="item item-divider min-height-60 pad-top-13 row font_initial">
+                      <div class="col col-33">Time</div>
+                      <div style="margin: inherit;" ng-click="showTimePicker($event)"><span id="start-Time"> {{selectedStartTime}} - {{selectedEndTime}}</span><span id="end-Time" class="ion-ios-close-outline clear-time"  ng-click="clearTime($event)"></span></div>
+                  </div>
+                  <div class="item item-divider min-height-60 pad-top-13 row font_initial animation">
+                      <div class="col col-33">Position</div>
+                      <div class="col col-75">(no position)</div>
+                  </div>
+
+              </div>
+          </div>
+              <div class="list">
+                  <div class="item item-divider min-height-60 pad-top-13 row font_initial animation" ng-repeat="time in availableTime track by $index">
+                      <div class="col col-20">Available</div>
+                      <div class="col col-20"> {{time.start}}</div>
+                      <div class="col col-20"> {{time.end}}</div>
+                      <div class="col col-20 icon ion-edit"  ng-init="idx = $index" ng-click="showTimePicker($event, $index)"> </div>
+                      <div class="col col-20 icon ion-android-delete" ng-click="removeItem(availableTime , time)"></div>
+                  </div>
+                  <!--they both are not working i want to remove and update the time and make responsive this page thats it-->
+              </div>
+          </ion-scroll>
+          <dual-picker
+                  todays-date="todaysDate"
+                  show-picker="showPicker"
+                  selected-start-time="selectedStartTime"
+                  selected-end-time="selectedEndTime"
+                  clear-time="clearTime"
+                  show-time-picker="showTimePicker"
+                  available-time="availableTime"
+                  set-time="setTime"
+                  remove-item="removeItem"
+                  display-picker="displayPicker"
+                  ng-style="{'display':displayPicker}"
+                  update="update"
+                  update-time="updateTime"
+                  ></dual-picker>
+
+      </ion-content>
+    </ion-pane>
+    <script src="js/lib/jquery-1.9.1.js"></script>
+    <script src="js/lib/drum/drum.js"></script>
+    <script src="js/lib/hammer/hammer.min.js"></script>
+    <script src="js/lib/hammer/hammer.fakemultitouch.js"></script>
+  </body>
+</html>
