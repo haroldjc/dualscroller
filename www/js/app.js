@@ -57,8 +57,8 @@ angular.module('starter', ['ionic'])
             scope.selectedStartTime  = "12:00 AM";
             scope.selectedEndTime  = "12:00 AM";
             $(document).ready(function () {
-                var startTemplate =    '<div class="start-time-lable animation" ng-class="{\'start-picker-label\': showPicker}">Start Time</div>';
-                var endTemplate  =  '<div class="end-time-lable animation" ng-class="{\'end-picker-label\': showPicker}">End Time</div>';
+                var startTemplate =    '<div class="start-time-lable animation" ng-class="{\'sstart-time-lable\': showPicker}">Start Time</div>';
+                var endTemplate  =  '<div class="end-time-lable animation" ng-class="{\'end-time-lable\': showPicker}">End Time</div>';
                 $("select.date").drum({
                     onChange : function (elem) {
                         if(elem.id == "startTime"){

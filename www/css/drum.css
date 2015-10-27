@@ -104,10 +104,10 @@ div.drum figure {
     white-space: nowrap;
     overflow: hidden;
     width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 div.drum-wrapper div.container, div.drum-wrapper figure {
     height: 25px;
-    line-height: 25px;
+    line-height: 10px;
 }
