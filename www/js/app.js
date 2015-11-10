@@ -18,7 +18,7 @@ angular.module('starter', ['ionic'])
   });
 }).directive('dualPicker', function () {
 
-        template =  '<div id="dualScroll" class="animation" style="position: fixed;  width: 100%;  bottom: 0px;  height: calc(100% - 165px);z-index: 10;">' +
+        template =  '<div id="dualScroll" class="animation" style="position: fixed;  width: 100%;  bottom: 0px;  height: calc(100% - 177px);z-index: 10;">' +
                      '<div class="dual-picker animation" ng-class="{\'show-picker show-picker-top\': showPicker}">' +
                          '<div class="item item-divider min-height-60 pad-top-20 row">' +
                             '<div class="col col-33 col-offset-10 cancel-set-dual" ng-click="clearTime($event)">CANCEL</div>' +
@@ -140,7 +140,7 @@ angular.module('starter', ['ionic'])
         ];
         $timeout(function () {
             $("select").drum();
-        });
+        },1000);
         Hammer.plugins.fakeMultitouch();
         $scope.clearTime = function (evt) {
             $timeout(function () {
